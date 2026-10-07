@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FF BATTLEZONE - Free Fire Hub</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-body: #0d0f12;
-            --bg-card: #15181e;
-            --bg-card-inner: #1c2027;
+            --bg-body: #0b0d10;
+            --bg-card: #14171d;
+            --bg-card-inner: #1b1e26;
             --border: #282d37;
             --primary: #ff6b00;
             --primary-hover: #ff8526;
@@ -42,9 +43,9 @@
             text-decoration: none;
         }
 
-        /* HEADER / NAVBAR */
+        /* NAVBAR */
         header {
-            background-color: #111419;
+            background-color: rgba(15, 18, 24, 0.95);
             border-bottom: 1px solid var(--border);
             padding: 12px 40px;
             display: flex;
@@ -53,6 +54,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            backdrop-filter: blur(8px);
         }
 
         .brand-logo {
@@ -88,18 +90,21 @@
         .nav-search {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            padding: 6px 12px;
+            padding: 6px 14px;
             border-radius: 4px;
             color: var(--text-muted);
             font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* HERO SECTION */
+        /* HERO SECTION WITH BACKGROUND IMAGE */
         .hero {
             position: relative;
-            background: linear-gradient(180deg, rgba(13,15,18,0.3) 0%, var(--bg-body) 100%), 
-                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80') center/cover;
-            height: 380px;
+            background: linear-gradient(180deg, rgba(11,13,16,0.4) 0%, rgba(11,13,16,0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            height: 420px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -108,9 +113,10 @@
         }
 
         .hero-content h1 {
-            font-size: 42px;
+            font-size: 44px;
             font-weight: 700;
             margin-bottom: 5px;
+            text-shadow: 0 0 20px rgba(255, 107, 0, 0.4);
         }
 
         .hero-content h1 span {
@@ -119,24 +125,25 @@
 
         .hero-content p {
             color: var(--text-muted);
-            font-size: 12px;
-            margin-bottom: 20px;
+            font-size: 13px;
+            margin-bottom: 24px;
             letter-spacing: 1px;
         }
 
         .btn-group {
             display: flex;
-            gap: 12px;
+            gap: 14px;
             justify-content: center;
         }
 
         .btn {
-            padding: 8px 24px;
+            padding: 10px 28px;
             font-family: 'Oswald', sans-serif;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
             border-radius: 4px;
             cursor: pointer;
+            transition: 0.2s;
         }
 
         .btn-orange {
@@ -147,12 +154,19 @@
 
         .btn-orange:hover {
             background-color: var(--primary-hover);
+            transform: translateY(-2px);
         }
 
         .btn-outline {
-            background: transparent;
+            background: rgba(0, 0, 0, 0.5);
             color: #fff;
             border: 1px solid var(--text-muted);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
         }
 
         /* MAIN CONTAINER LAYOUT */
@@ -173,7 +187,7 @@
         }
 
         .section-title {
-            font-size: 18px;
+            font-size: 20px;
             color: #fff;
             display: flex;
             align-items: center;
@@ -182,20 +196,22 @@
 
         .section-subtitle {
             font-size: 11px;
-            color: var(--text-muted);
+            color: var(--primary);
             text-transform: uppercase;
             margin-bottom: 3px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         .card {
             background-color: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 6px;
+            border-radius: 8px;
             padding: 20px;
             margin-bottom: 25px;
         }
 
-        /* CHARACTERS GRID */
+        /* CHARACTERS GRID WITH IMAGES */
         .character-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -207,25 +223,27 @@
             border: 1px solid var(--border);
             border-radius: 6px;
             overflow: hidden;
-            position: relative;
+            transition: border-color 0.3s;
+        }
+
+        .char-card:hover {
+            border-color: var(--primary);
         }
 
         .char-img {
-            height: 140px;
-            background: #232832;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
+            height: 150px;
+            background-size: cover;
+            background-position: center top;
         }
 
         .char-info {
             padding: 10px;
+            background: rgba(15, 18, 24, 0.8);
         }
 
         .char-name {
             font-family: 'Oswald', sans-serif;
-            font-size: 14px;
+            font-size: 15px;
             color: #fff;
         }
 
@@ -248,10 +266,18 @@
             padding: 12px;
         }
 
+        .weapon-img {
+            height: 80px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-bottom: 10px;
+        }
+
         .weapon-title {
             font-family: 'Oswald', sans-serif;
             font-size: 16px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .stat-row {
@@ -295,7 +321,7 @@
             border-radius: 6px;
             padding: 10px;
             margin-top: 8px;
-            min-height: 80px;
+            min-height: 85px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -305,7 +331,7 @@
 
         .rank-box.active {
             border-color: var(--primary);
-            box-shadow: 0 0 10px rgba(255, 107, 0, 0.2);
+            box-shadow: 0 0 12px rgba(255, 107, 0, 0.25);
         }
 
         .rank-title {
@@ -316,7 +342,7 @@
         /* BATTLE PASS / SURVIVOR PASS */
         .pass-grid {
             display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr;
+            grid-template-columns: 1.4fr 1fr 1fr;
             gap: 12px;
         }
 
@@ -325,20 +351,26 @@
             border: 1px solid var(--border);
             border-radius: 6px;
             padding: 12px;
-            position: relative;
         }
 
         .pass-card.highlight {
             border-color: var(--primary);
         }
 
+        .pass-img {
+            height: 110px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
         .pass-card h4 {
             font-size: 12px;
             color: var(--primary);
-            margin-top: 5px;
         }
 
-        /* ESPORTS & COMMUNITY */
+        /* ESPORTS & COMMUNITY WITH THUMBNAILS */
         .news-item {
             display: flex;
             gap: 12px;
@@ -350,9 +382,10 @@
         }
 
         .news-thumb {
-            width: 70px;
-            height: 50px;
-            background: #2a2f3a;
+            width: 75px;
+            height: 55px;
+            background-size: cover;
+            background-position: center;
             border-radius: 4px;
             flex-shrink: 0;
         }
@@ -370,7 +403,7 @@
 
         /* FOOTER */
         footer {
-            background: #090a0c;
+            background: #07080a;
             border-top: 1px solid var(--border);
             padding: 30px 40px;
             display: grid;
@@ -401,6 +434,9 @@
             .character-grid, .weapon-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            footer {
+                grid-template-columns: 1fr 1fr;
+            }
         }
     </style>
 </head>
@@ -423,11 +459,11 @@
         <div class="nav-search">🔍 SEARCH CODES</div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION (WITH BACKGROUND GAMBAR) -->
     <section class="hero">
         <div class="hero-content">
             <h1>UNLEASH THE POWER | <span>FREE FIRE HUB</span></h1>
-            <p>THE ULTIMATE FF COMMUNITY PORTAL</p>
+            <p>THE ULTIMATE FF COMMUNITY PORTAL & STATS TRACKER</p>
             <div class="btn-group">
                 <button class="btn btn-orange">PLAY NOW</button>
                 <button class="btn btn-outline">JOIN ESPORTS</button>
@@ -435,12 +471,12 @@
         </div>
     </section>
 
-    <!-- MAIN CONTENT -->
+    <!-- MAIN CONTAINER -->
     <div class="main-layout">
         
         <!-- LEFT COLUMN -->
         <main>
-            <!-- FEATURED CHARACTERS -->
+            <!-- FEATURED CHARACTERS WITH IMAGES -->
             <section class="card">
                 <div class="section-subtitle">CHARACTER ROSTER</div>
                 <div class="section-header">
@@ -448,28 +484,28 @@
                 </div>
                 <div class="character-grid">
                     <div class="char-card">
-                        <div class="char-img">👤</div>
+                        <div class="char-img" style="background-image: url('https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=400&q=80');"></div>
                         <div class="char-info">
                             <div class="char-name">MOKO</div>
                             <div class="char-desc">Hacker's Eye Ability</div>
                         </div>
                     </div>
                     <div class="char-card">
-                        <div class="char-img">👤</div>
+                        <div class="char-img" style="background-image: url('https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=400&q=80');"></div>
                         <div class="char-info">
                             <div class="char-name">HAYATO</div>
                             <div class="char-desc">Bushido Ability</div>
                         </div>
                     </div>
                     <div class="char-card">
-                        <div class="char-img">👤</div>
+                        <div class="char-img" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80');"></div>
                         <div class="char-info">
                             <div class="char-name">ALOK</div>
                             <div class="char-desc">Drop The Beat</div>
                         </div>
                     </div>
                     <div class="char-card">
-                        <div class="char-img">👤</div>
+                        <div class="char-img" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80');"></div>
                         <div class="char-info">
                             <div class="char-name">CHRONO</div>
                             <div class="char-desc">Time Turner</div>
@@ -478,7 +514,7 @@
                 </div>
             </section>
 
-            <!-- WEAPON ARMORY -->
+            <!-- WEAPON ARMORY WITH IMAGES -->
             <section class="card">
                 <div class="section-subtitle">WEAPON STATS</div>
                 <div class="section-header">
@@ -486,6 +522,7 @@
                 </div>
                 <div class="weapon-grid">
                     <div class="weapon-card">
+                        <div class="weapon-img" style="background-image: url('https://images.unsplash.com/photo-1595590424283-b8f17842773f?auto=format&fit=crop&w=400&q=80');"></div>
                         <div class="weapon-title">M1887</div>
                         <div class="stat-row"><span>DAMAGE</span><span>100</span></div>
                         <div class="stat-bar"><div class="stat-fill" style="width: 100%;"></div></div>
@@ -493,13 +530,15 @@
                         <div class="stat-bar"><div class="stat-fill" style="width: 21%;"></div></div>
                     </div>
                     <div class="weapon-card">
-                        <div class="weapon-title">MA41</div>
+                        <div class="weapon-img" style="background-image: url('https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&w=400&q=80');"></div>
+                        <div class="weapon-title">M4A1</div>
                         <div class="stat-row"><span>DAMAGE</span><span>53</span></div>
                         <div class="stat-bar"><div class="stat-fill" style="width: 53%;"></div></div>
                         <div class="stat-row"><span>RATE OF FIRE</span><span>56</span></div>
                         <div class="stat-bar"><div class="stat-fill" style="width: 56%;"></div></div>
                     </div>
                     <div class="weapon-card">
+                        <div class="weapon-img" style="background-image: url('https://images.unsplash.com/photo-1595590424283-b8f17842773f?auto=format&fit=crop&w=400&q=80');"></div>
                         <div class="weapon-title">MP40</div>
                         <div class="stat-row"><span>DAMAGE</span><span>48</span></div>
                         <div class="stat-bar"><div class="stat-fill" style="width: 48%;"></div></div>
@@ -515,7 +554,7 @@
                 <div class="section-header">
                     <h2 class="section-title">RANK UP & EARN!</h2>
                 </div>
-                <p style="font-size: 11px; color: var(--text-muted);">Exclusive Rank rewards Rewards</p>
+                <p style="font-size: 11px; color: var(--text-muted);">Exclusive Rank Season Rewards</p>
                 
                 <div class="rank-container">
                     <div class="rank-col">
@@ -541,7 +580,7 @@
                 </div>
             </section>
 
-            <!-- SURVIVOR PASS -->
+            <!-- SURVIVOR PASS WITH IMAGES -->
             <section class="card">
                 <div class="section-subtitle">BATTLE PASS</div>
                 <div class="section-header">
@@ -549,84 +588,16 @@
                 </div>
                 <div class="pass-grid">
                     <div class="pass-card highlight">
-                        <div style="height: 100px; background: #232832; border-radius: 4px;"></div>
+                        <div class="pass-img" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400&q=80');"></div>
                         <h4>SURVIVOR PASS: CYBER REBELLION</h4>
                     </div>
                     <div class="pass-card">
-                        <div style="height: 100px; background: #232832; border-radius: 4px;"></div>
+                        <div class="pass-img" style="background-image: url('https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=400&q=80');"></div>
                         <h4>LVL 1 SKIN<br><small style="color: var(--text-muted);">LVL 50 EMOTE</small></h4>
                     </div>
                     <div class="pass-card">
-                        <div style="height: 100px; background: #232832; border-radius: 4px;"></div>
+                        <div class="pass-img" style="background-image: url('https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=400&q=80');"></div>
                         <h4>LVL 1 SKIN<br><small style="color: var(--text-muted);">LVL 100 BUNDLE</small></h4>
                     </div>
                 </div>
-            </section>
-        </main>
-
-        <!-- RIGHT COLUMN -->
-        <aside>
-            <!-- GLOBAL ESPORTS CENTRAL -->
-            <section class="card">
-                <div class="section-subtitle">ESPORTS NEWS</div>
-                <div class="section-header">
-                    <h2 class="section-title">GLOBAL ESPORTS CENTRAL</h2>
-                </div>
-                
-                <div class="news-item">
-                    <div class="news-thumb"></div>
-                    <div class="news-content">
-                        <h5>WORLD SERIES FINALS: TEAM INDONESIA DOMINATES!</h5>
-                        <div class="news-time">30 days ago</div>
-                    </div>
-                </div>
-
-                <div class="news-item">
-                    <div class="news-thumb"></div>
-                    <div class="news-content">
-                        <h5>UPCOMING TOURNAMENTS</h5>
-                        <div class="news-time">20 days ago</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- COMMUNITY SPOTLIGHT -->
-            <section class="card">
-                <div class="section-subtitle">COMMUNITY</div>
-                <div class="section-header">
-                    <h2 class="section-title">COMMUNITY SPOTLIGHT</h2>
-                </div>
-                
-                <div class="news-item">
-                    <div class="news-thumb"></div>
-                    <div class="news-content">
-                        <h5>LATEST FROM THE COMMUNITY</h5>
-                        <div class="news-time">10 mins ago</div>
-                    </div>
-                </div>
-
-                <div class="news-item">
-                    <div class="news-thumb"></div>
-                    <div class="news-content">
-                        <h5>REDEEM CODES LIVE CLAIM</h5>
-                        <div class="news-time">1 hour ago</div>
-                    </div>
-                </div>
-
-                <div class="news-item">
-                    <div class="news-thumb"></div>
-                    <div class="news-content">
-                        <h5>UPCOMING TOURNAMENTS</h5>
-                        <div class="news-time">3 hours ago</div>
-                    </div>
-                </div>
-            </section>
-        </aside>
-
-    </div>
-
-    <!-- FOOTER -->
-    <footer>
-        <div>
-            <div class="brand-logo" style="margin-bottom: 10px;">FF <span>BATTLEZONE</span></div>
      

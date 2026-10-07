@@ -1,763 +1,525 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FREE FIRE | COMMUNITY HUB</title>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet">
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <style>
-    /* RESET & GLOBAL STYLES */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: #080b11;
-      color: #cbd5e1;
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      line-height: 1.4;
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3, h4, h5, .brand-title, .nav-links a, .btn-orange, .map-tab, .tourney-prize {
-      font-family: 'Rajdhani', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* NAVIGATION BAR */
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-color: #0b0f19;
-      border-bottom: 1px solid #1e293b;
-      padding: 0 24px;
-      height: 60px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand-title {
-      font-size: 22px;
-      font-weight: 800;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .brand-title span.ff-accent {
-      color: #ff9900;
-      background: linear-gradient(180deg, #ffb700, #ff5500);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .brand-divider {
-      color: #475569;
-      font-weight: 300;
-    }
-
-    .brand-sub {
-      color: #ff9900;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 15px;
-      font-weight: 700;
-      color: #94a3b8;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover, .nav-links a.active {
-      color: #ff9900;
-      border-bottom: 2px solid #ff9900;
-      padding-bottom: 18px;
-    }
-
-    .github-icon {
-      font-size: 20px;
-      color: #ffffff;
-      margin-left: 12px;
-    }
-
-    /* HERO BANNER & SEARCH */
-    .hero {
-      position: relative;
-      height: 360px;
-      background: linear-gradient(180deg, rgba(8, 11, 17, 0.2) 0%, rgba(8, 11, 17, 1) 100%),
-                  url('https://freefiremobile-a.akamaihd.net/ffwebsite/images/freefire_bg_desktop.jpg') center/cover no-repeat;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-end;
-      padding-bottom: 24px;
-      border-bottom: 1px solid #1e293b;
-    }
-
-    .search-box {
-      display: flex;
-      align-items: center;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid #334155;
-      border-radius: 6px;
-      padding: 4px;
-      width: 460px;
-      max-width: 90%;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-      backdrop-filter: blur(8px);
-    }
-
-    .search-box input {
-      background: transparent;
-      border: none;
-      outline: none;
-      color: #fff;
-      padding: 8px 14px;
-      width: 100%;
-      font-size: 13px;
-    }
-
-    .search-box button {
-      background: linear-gradient(135deg, #ff9900, #ff5500);
-      border: none;
-      color: #000;
-      font-weight: 800;
-      padding: 8px 18px;
-      border-radius: 4px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'Rajdhani', sans-serif;
-      text-transform: uppercase;
-    }
-
-    /* MAIN CONTAINER (2 COLUMNS LAYOUT) */
-    .main-container {
-      display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 20px;
-      max-width: 1600px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    @media (max-width: 1100px) {
-      .main-container {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* PANELS & CARDS */
-    .panel {
-      background-color: #0f172a;
-      border: 1px solid #1e293b;
-      border-radius: 8px;
-      padding: 14px;
-      margin-bottom: 18px;
-    }
-
-    .panel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .nav-arrows {
-      display: flex;
-      gap: 4px;
-    }
-
-    .arrow-btn {
-      background: #1e293b;
-      border: none;
-      color: #64748b;
-      width: 22px;
-      height: 22px;
-      border-radius: 4px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 9px;
-    }
-
-    /* CHARACTERS GRID */
-    .char-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-
-    .char-card {
-      background: #162032;
-      border: 1px solid #24334a;
-      border-radius: 6px;
-      padding: 10px;
-      text-align: center;
-      position: relative;
-    }
-
-    .badge-new {
-      position: absolute;
-      top: 6px;
-      right: 6px;
-      background: #ff9900;
-      color: #000;
-      font-size: 8px;
-      font-weight: 800;
-      padding: 2px 4px;
-      border-radius: 3px;
-    }
-
-    .char-avatar {
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      background: #1e293b;
-      margin: 0 auto 6px auto;
-      border: 2px solid #ff9900;
-      object-fit: cover;
-    }
-
-    .char-name {
-      font-weight: 700;
-      color: #fff;
-      font-size: 13px;
-      margin-bottom: 4px;
-    }
-
-    .char-icons {
-      display: flex;
-      justify-content: center;
-      gap: 6px;
-      margin-bottom: 8px;
-      color: #ff9900;
-      font-size: 10px;
-    }
-
-    .btn-xs {
-      display: block;
-      width: 100%;
-      padding: 3px 0;
-      font-size: 9px;
-      font-weight: 700;
-      border-radius: 3px;
-      margin-top: 4px;
-      text-align: center;
-      cursor: pointer;
-    }
-
-    .btn-dark {
-      background: #1e293b;
-      color: #94a3b8;
-      border: 1px solid #334155;
-    }
-
-    .btn-orange {
-      background: #ff9900;
-      color: #000;
-      border: none;
-    }
-
-    /* WEAPONS & LOADOUT */
-    .weapons-flex {
-      display: flex;
-      gap: 14px;
-    }
-
-    .weapon-list {
-      width: 55%;
-    }
-
-    .weapon-item {
-      display: flex;
-      justify-content: space-between;
-      padding: 3px 0;
-      border-bottom: 1px dashed #1e293b;
-      font-size: 10px;
-    }
-
-    .weapon-name {
-      color: #94a3b8;
-      font-weight: 700;
-    }
-
-    .weapon-desc {
-      color: #64748b;
-    }
-
-    .loadout-box {
-      width: 45%;
-      background: #162032;
-      border: 1px solid #24334a;
-      border-radius: 6px;
-      padding: 10px;
-    }
-
-    .loadout-title {
-      font-weight: 700;
-      color: #fff;
-      font-size: 11px;
-      margin-bottom: 6px;
-    }
-
-    .select-group {
-      margin-bottom: 5px;
-    }
-
-    .select-group label {
-      display: block;
-      font-size: 9px;
-      color: #64748b;
-    }
-
-    .select-group select {
-      width: 100%;
-      background: #0f172a;
-      border: 1px solid #334155;
-      color: #fff;
-      padding: 3px;
-      border-radius: 3px;
-      font-size: 10px;
-    }
-
-    /* MAPS & VEHICLES */
-    .map-preview {
-      width: 100%;
-      height: 150px;
-      border-radius: 6px;
-      object-fit: cover;
-      border: 1px solid #334155;
-      margin-bottom: 10px;
-    }
-
-    .map-tabs {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 10px;
-    }
-
-    .map-tab {
-      background: #1e293b;
-      color: #94a3b8;
-      padding: 3px 8px;
-      border-radius: 3px;
-      font-size: 10px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .map-tab.active {
-      background: #ff9900;
-      color: #000;
-    }
-
-    .vehicle-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      text-align: center;
-    }
-
-    .vehicle-card {
-      background: #162032;
-      border: 1px solid #24334a;
-      padding: 6px;
-      border-radius: 6px;
-    }
-
-    .vehicle-card img {
-      width: 100%;
-      height: 40px;
-      object-fit: contain;
-      margin-bottom: 4px;
-    }
-
-    .vehicle-name {
-      font-size: 10px;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    .vehicle-stat {
-      font-size: 8px;
-      color: #64748b;
-    }
-
-    /* RIGHT COLUMN COMPONENTS */
-    .guide-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-    }
-
-    .guide-card {
-      background: #162032;
-      border: 1px solid #24334a;
-      border-radius: 6px;
-      padding: 8px;
-      text-align: center;
-    }
-
-    .guide-icon {
-      font-size: 18px;
-      color: #ff9900;
-      margin-bottom: 4px;
-    }
-
-    .guide-title {
-      font-size: 10px;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    .guide-desc {
-      font-size: 8px;
-      color: #64748b;
-      margin-top: 2px;
-    }
-
-    /* TOURNAMENTS TABLE */
-    .tourney-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #162032;
-      border: 1px solid #24334a;
-      padding: 8px 10px;
-      border-radius: 6px;
-      margin-bottom: 6px;
-    }
-
-    .tourney-info {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .tourney-icon {
-      color: #ff9900;
-      font-size: 14px;
-    }
-
-    .tourney-title {
-      font-size: 10px;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    .tourney-meta {
-      font-size: 8px;
-      color: #64748b;
-    }
-
-    .tourney-prize {
-      font-size: 11px;
-      font-weight: 700;
-      color: #ff9900;
-    }
-
-    .btn-register {
-      background: #ff9900;
-      color: #000;
-      font-weight: 800;
-      padding: 3px 8px;
-      border-radius: 3px;
-      font-size: 9px;
-      border: none;
-      cursor: pointer;
-      font-family: 'Rajdhani', sans-serif;
-    }
-
-    /* IN-GAME ITEMS & BUNDLES */
-    .items-scroll {
-      display: flex;
-      gap: 6px;
-      overflow-x: auto;
-      padding-bottom: 4px;
-    }
-
-    .item-card {
-      min-width: 60px;
-      height: 60px;
-      background: #162032;
-      border: 1px solid #24334a;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      overflow: hidden;
-    }
-
-    .item-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* FOOTER */
-    .footer {
-      background: #0b0f19;
-      border-top: 1px solid #1e293b;
-      padding: 20px 24px;
-      margin-top: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      font-size: 10px;
-      color: #64748b;
-    }
-
-    .footer-col h5 {
-      color: #fff;
-      font-size: 11px;
-      margin-bottom: 6px;
-    }
-
-    .footer-links {
-      list-style: none;
-    }
-
-    .footer-links li {
-      margin-bottom: 3px;
-    }
-
-    .social-icons {
-      display: flex;
-      gap: 8px;
-      font-size: 12px;
-      color: #94a3b8;
-      margin-top: 4px;
-    }
-
-    .copyright {
-      text-align: center;
-      padding: 10px;
-      background: #080b11;
-      border-top: 1px solid #162032;
-      font-size: 9px;
-      color: #475569;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dapur Senja - Kuliner Rumahan di Bawah Langit Senja</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #E65100;
+            --primary-hover: #BF360C;
+            --accent-orange: #FF6D00;
+            --bg-cream: #FAF6F0;
+            --text-dark: #2C221E;
+            --text-muted: #6E655F;
+            --card-bg: #FFFFFF;
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #FF9800, #E65100);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 2px 10px rgba(230, 81, 0, 0.4);
+        }
+
+        .logo-text {
+            color: #FFFFFF;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+        }
+
+        .logo-text span {
+            display: block;
+            color: #FFB74D;
+            font-size: 18px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+            text-transform: uppercase;
+        }
+
+        nav a:hover, nav a.active {
+            color: #FFB74D;
+        }
+
+        .cart-btn {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cart-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .cart-badge {
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            margin-top: 60px;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            color: #F0F0F0;
+            margin-bottom: 28px;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(230, 81, 0, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(230, 81, 0, 0.6);
+        }
+
+        /* --- MENU TERFAVORIT --- */
+        .section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 40px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .menu-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .menu-img-wrapper {
+            position: relative;
+            height: 180px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .menu-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .menu-details {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .menu-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .menu-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .menu-price {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .btn-order {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: auto;
+        }
+
+        .btn-order:hover {
+            background: var(--primary-hover);
+        }
+
+        /* --- FEATURES & TESTIMONIALS --- */
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .features-container h3, .testimonials-container h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .features-list {
+            display: flex;
+            gap: 20px;
+        }
+
+        .feature-item {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .feature-icon {
+            color: var(--primary);
+            font-size: 24px;
+            background: rgba(230, 81, 0, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .feature-text h4 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .feature-text p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .user-info h5 {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .user-info p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #1A1412;
+            color: #A09893;
+            text-align: center;
+            padding: 30px 8%;
+            font-size: 13px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 900px) {
+            header {
+                padding: 15px 5%;
+            }
+            nav {
+                display: none;
+            }
+            .hero-title {
+                font-size: 32px;
+            }
+            .bottom-grid {
+                grid-template-columns: 1fr;
+            }
+            .features-list {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="brand">
-      <div class="brand-title"><span class="ff-accent">FREE FIRE</span> <span class="brand-divider">|</span> <span class="brand-sub">COMMUNITY HUB</span></div>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#" class="active">Home</a></li>
-      <li><a href="#">Guides</a></li>
-      <li><a href="#">News</a></li>
-      <li><a href="#">Esports</a></li>
-      <li><a href="#">Forums</a></li>
-      <li><a href="https://github.com" target="_blank" class="github-icon"><i class="fa-brands fa-github"></i></a></li>
-    </ul>
-  </nav>
+    <!-- HEADER / NAVBAR -->
+    <header>
+        <a href="#" class="logo">
+            <div class="logo-icon"><i class="fa-solid fa-utensils"></i></div>
+            <div class="logo-text">DAPUR<span>SENJA</span></div>
+        </a>
+        <nav>
+            <a href="#" class="active">Home</a>
+            <a href="#">Menu</a>
+            <a href="#">Order Online</a>
+            <a href="#">Tentang Kami</a>
+            <a href="#">Kontak</a>
+            <div class="cart-btn">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Cart</span>
+                <span class="cart-badge">2</span>
+            </div>
+        </nav>
+    </header>
 
-  <!-- HERO BANNER -->
-  <header class="hero">
-    <div class="search-box">
-      <input type="text" placeholder="Search Free Fire Wiki...">
-      <button><i class="fa-solid fa-magnifying-glass"></i> Search</button>
-    </div>
-  </header>
-
-  <!-- MAIN CONTAINER (2 COLUMNS) -->
-  <div class="main-container">
-
-    <!-- LEFT COLUMN -->
-    <main class="left-col">
-      <h2 style="color: #fff; margin-bottom: 12px; font-size: 18px; font-family: 'Rajdhani', sans-serif;">
-        ULTIMATE <span style="color: #ff9900;">FREE FIRE</span> GAME GUIDE
-      </h2>
-
-      <!-- CHARACTERS SECTION -->
-      <section class="panel">
-        <div class="panel-header">
-          <div class="section-title">Characters (Detailed)</div>
-          <div class="nav-arrows">
-            <button class="arrow-btn"><i class="fa-solid fa-chevron-left"></i></button>
-            <button class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></button>
-          </div>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Selamat Datang di Dapur Senja</h1>
+            <p class="hero-subtitle">Nikmati Kelezatan Kuliner Rumahan di Bawah Langit Senja</p>
+            <a href="#menu" class="btn-primary">LIHAT MENU LENGKAP</a>
         </div>
-        <div class="char-grid">
-          <!-- K -->
-          <div class="char-card">
-            <img src="https://ff.garena.com/static/images/character/k.png" class="char-avatar" alt="K">
-            <div class="char-name">K</div>
-            <div class="char-icons">
-              <i class="fa-solid fa-shield-halved"></i>
-              <i class="fa-solid fa-bolt"></i>
-              <i class="fa-solid fa-heart"></i>
-            </div>
-            <a class="btn-xs btn-dark">Detailed Profile</a>
-            <a class="btn-xs btn-orange">Combos</a>
-          </div>
-          <!-- Chrono -->
-          <div class="char-card">
-            <img src="https://ff.garena.com/static/images/character/chrono.png" class="char-avatar" alt="Chrono">
-            <div class="char-name">Chrono</div>
-            <div class="char-icons">
-              <i class="fa-solid fa-shield"></i>
-              <i class="fa-solid fa-gauge-high"></i>
-            </div>
-            <a class="btn-xs btn-dark">Detailed Profile</a>
-            <a class="btn-xs btn-orange">Patch Notes</a>
-          </div>
-          <!-- Alok -->
-          <div class="char-card">
-            <img src="https://ff.garena.com/static/images/character/alok.png" class="char-avatar" alt="Alok">
-            <div class="char-name">Alok</div>
-            <div class="char-icons">
-              <i class="fa-solid fa-music"></i>
-              <i class="fa-solid fa-person-running"></i>
-            </div>
-            <a class="btn-xs btn-dark">Detailed Profile</a>
-            <a class="btn-xs btn-orange">Patch Notes</a>
-          </div>
-          <!-- Orion -->
-          <div class="char-card">
-            <span class="badge-new">NEW</span>
-            <img src="https://ff.garena.com/static/images/character/orion.png" class="char-avatar" alt="Orion">
-            <div class="char-name">Orion</div>
-            <div class="char-icons">
-              <i class="fa-solid fa-skull"></i>
-              <i class="fa-solid fa-ghost"></i>
-            </div>
-            <a class="btn-xs btn-dark">Detailed Profile</a>
-            <a class="btn-xs btn-orange">Patch Notes</a>
-          </div>
-          <!-- Rela -->
-          <div class="char-card">
-            <img src="https://ff.garena.com/static/images/character/hayato.png" class="char-avatar" alt="Rela">
-            <div class="char-name">Rela</div>
-            <div class="char-icons">
-              <i class="fa-solid fa-hand-fist"></i>
-            </div>
-            <a class="btn-xs btn-dark">Detailed Profile</a>
-            <a class="btn-xs btn-orange">Combos</a>
-          </div>
-          <!-- Orion 2 -->
-          <div class="char-card">
-            <img src="https://ff.garena.com/static/images/character/orion.png" class="char-avatar" alt="Orion">
-            <div class="char-name">Orion</div>
-            <div class="char-icons">
-              <i class="fa-solid fa-crosshair"></i>
-            </div>
-            <a class="btn-xs btn-dark">Detailed Profile</a>
-            <a class="btn-xs btn-orange">Patch Notes</a>
-          </div>
-        </div>
-      </section>
+    </section>
 
-      <!-- WEAPONS & LOADOUT -->
-      <section class="panel">
-        <div class="panel-header">
-          <div class="section-title">Weapons (Deep Dive)</div>
-          <div class="nav-arrows">
-            <button class="arrow-btn"><i class="fa-solid fa-chevron-left"></i></button>
-            <button class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></button>
-          </div>
-        </div>
-        <div class="weapons-flex">
-          <div class="weapon-list">
-            <div style="font-weight: 700; color: #fff; margin-bottom: 4px;">AR</div>
-            <div class="weapon-item"><span class="weapon-name">AK</span><span class="weapon-desc">Stats • Optimal Recoil Patterns, Attachments</span></div>
-            <div class="weapon-item"><span class="weapon-name">M4A1</span><span class="weapon-desc">Stats • Optimal Recoil Patterns, Attachments</span></div>
-            <div class="weapon-item"><span class="weapon-name">SCAR</span><span class="weapon-desc">Stats • Optimal Recoil Patterns, Attachments</span></div>
-            <div class="weapon-item"><span class="weapon-name">AN94</span><span class="weapon-desc">Stats • Optimal Recoil Patterns, Attachments</span></div>
-            <div class="weapon-item"><span class="weapon-name">GROZA</span><span class="weapon-desc">Stats • Optimal Recoil Patterns, Attachments</span></div>
-            <div class="weapon-item"><span class="weapon-name">XM8</span><span class="weapon-desc">Stats • Optimal Recoil Patterns, Attachments</span></div>
-            <div class="weapon-item"><span class="weapon-name">M249</span><span class="weapon-desc">Stats • Optimal Recoil Patterns, Attachments</span></div>
-            <div class="weapon-item"><span class="weapon-name">WOODPECKER</span><span class="weapon-desc">Stats • Optimal Recoil Patterns, Attachments</span></div>
-
-            <div style="font-weight: 700; color: #fff; margin-top: 8px;">SMGs</div>
-            <div style="font-weight: 700; color: #fff; margin-top: 4px;">Shotguns</div>
-            <div style="font-weight: 700; color: #fff; margin-top: 4px;">Snipers</div>
-            <div style="font-weight: 700; color: #fff; margin-top: 4px;">Pistols</div>
-          </div>
-
-          <div class="loadout-box">
-            <div class="loadout-title">Loadout Creator</div>
-            <div class="select-group">
-              <label>AR</label>
-              <select><option>AK</option></select>
-            </div>
-            <div class="select-group">
-              <label>Shotguns</label>
-              <select><option>M1887</option></select>
-            </div>
-            <div class="select-group">
-              <label>Shotguns</label>
-              <select><option>M1014</option></select>
-            </div>
-            <div class="select-group">
-              <label>Snipers</label>
-              <select><option>AWM</option></select>
-            </div>
-            <button class="btn-xs btn-orange" style="margin-top: 8px;">Loadout Creator</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- MAPS & VEHICLES -->
-      <section class="panel">
-        <div class="panel-header">
-          <div class="section-title">Maps & Strategies (In-depth)</div>
-          <div class="nav-arrows">
-            <button class="arrow-btn"><i class="fa-solid fa-chevron-left"></i></button>
-            <button class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></button>
-          </div>
-        </div>
-        <!-- Gambar Map Bermuda -->
-        <img src="https://freefiremobile-a.akamaihd.net/ffwebsite/images/map/bermuda.jpg" class="map-preview" alt="Free Fire Map Bermuda">
+    <!-- MENU TERFAVORIT -->
+    <section class="section" id="menu">
+        <h2 class="section-title">Menu Terfavorit Kami</h2>
         
-        <div class="map-tabs">
-          <div class="map-tab active">Purgatory</di
+        <div class="menu-grid">
+            <!-- Item 1 -->
+            <div class="menu-card">
+                <div class="menu-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=500&auto=format&fit=crop" alt="Ayam Geprek Sambal Ijo" class="menu-img">
+                </div>
+                <div class="menu-details">
+                    <h3 class="menu-name">Ayam Geprek Sambal Ijo</h3>
+                    <p class="menu-desc">Ayam Geprek Sambal Ijo, Ayam Geprek crispy dengan sambal ijo pedas gurih.</p>
+                    <div class="menu-price">Rp 35.000</div>
+                    <button class="btn-order">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="menu-card">
+                <div class="menu-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=500&auto=format&fit=crop" alt="Es Kopi Susu Senja" class="menu-img">
+                </div>
+                <div class="menu-details">
+                    <h3 class="menu-name">Es Kopi Susu Senja</h3>
+                    <p class="menu-desc">Es Kopi Susu Senja dengan racikan kopi pilihan dan gula aren asli.</p>
+                    <div class="menu-price">Rp 22.000</div>
+                    <button class="btn-order">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="menu-card">
+                <div class="menu-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=500&auto=format&fit=crop" alt="Nasi Campur Bali" class="menu-img">
+                </div>
+                <div class="menu-details">
+                    <h3 class="menu-name">Nasi Campur Bali</h3>
+                    <p class="menu-desc">Nasi Campur Bali khas Dapur Senja lengkap dengan sate lilit & sambal matah.</p>
+                    <div class="menu-price">Rp 40.000</div>
+                    <button class="btn-order">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="menu-card">
+                <div class="menu-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1546173159-315724a31696?q=80&w=500&auto=format&fit=crop" alt="Jus Mangga Segar" class="menu-img">
+                </div>
+                <div class="menu-details">
+                    <h3 class="menu-name">Jus Mangga Segar</h3>
+                    <p class="menu-desc">Jus Mangga Segar dari buah mangga arumanis asli tanpa pemanis buatan.</p>
+                    <div class="menu-price">Rp 25.000</div>
+                    <button class="btn-order">Order Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- FITUR & TESTIMONI -->
+        <div class="bottom-grid">
+            <div class="features-container">
+                <h3>Mengapa Memilih Kami?</h3>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <i class="fa-solid fa-leaf feature-icon"></i>
+                        <div class="feature-text">
+                            <h4>Bahan Segar</h4>
+                            <p>Bahan berkualitas tinggi dari petani lokal.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-utensils feature-icon"></i>
+                        <div class="feature-text">
+                            <h4>Rasa Otentik</h4>
+                            <p>Resep rumahan warisan keluarga.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonials-container">
+                <h3>Testimoni Pelanggan</h3>
+                <div class="testimonial-card">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="Pelanggan" class="user-avatar">
+                    <div class="user-info">
+                        <h5>Siska Amelia</h5>
+                        <p>"Makanan di Dapur Senja rasanya benar-benar otentik dan bikin kangen masakan rumah!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Dapur Senja. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

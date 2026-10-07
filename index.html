@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FREE FIRE | Community Hub</title>
+  <title>FREE FIRE | COMMUNITY HUB</title>
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,12 +23,12 @@
       background-color: #080b11;
       color: #cbd5e1;
       font-family: 'Inter', sans-serif;
-      font-size: 13px;
+      font-size: 12px;
       line-height: 1.4;
       overflow-x: hidden;
     }
 
-    h1, h2, h3, h4, h5, .brand-title, .nav-links a {
+    h1, h2, h3, h4, h5, .brand-title, .nav-links a, .btn-orange, .map-tab, .tourney-prize {
       font-family: 'Rajdhani', sans-serif;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -112,17 +112,17 @@
       margin-left: 12px;
     }
 
-    /* HERO SECTION */
+    /* HERO BANNER & SEARCH */
     .hero {
       position: relative;
-      height: 320px;
-      background: linear-gradient(180deg, rgba(11, 15, 25, 0.4) 0%, rgba(8, 11, 17, 1) 100%),
-                  url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      height: 360px;
+      background: linear-gradient(180deg, rgba(8, 11, 17, 0.2) 0%, rgba(8, 11, 17, 1) 100%),
+                  url('https://freefiremobile-a.akamaihd.net/ffwebsite/images/freefire_bg_desktop.jpg') center/cover no-repeat;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-end;
-      padding-bottom: 30px;
+      padding-bottom: 24px;
       border-bottom: 1px solid #1e293b;
     }
 
@@ -133,9 +133,9 @@
       border: 1px solid #334155;
       border-radius: 6px;
       padding: 4px;
-      width: 480px;
+      width: 460px;
       max-width: 90%;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
       backdrop-filter: blur(8px);
     }
 
@@ -144,17 +144,17 @@
       border: none;
       outline: none;
       color: #fff;
-      padding: 8px 16px;
+      padding: 8px 14px;
       width: 100%;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     .search-box button {
       background: linear-gradient(135deg, #ff9900, #ff5500);
       border: none;
       color: #000;
-      font-weight: 700;
-      padding: 8px 20px;
+      font-weight: 800;
+      padding: 8px 18px;
       border-radius: 4px;
       cursor: pointer;
       display: flex;
@@ -164,14 +164,14 @@
       text-transform: uppercase;
     }
 
-    /* MAIN CONTAINER (2 COLUMNS) */
+    /* MAIN CONTAINER (2 COLUMNS LAYOUT) */
     .main-container {
       display: grid;
       grid-template-columns: 1fr 420px;
       gap: 20px;
       max-width: 1600px;
       margin: 0 auto;
-      padding: 24px;
+      padding: 20px;
     }
 
     @media (max-width: 1100px) {
@@ -180,33 +180,29 @@
       }
     }
 
-    /* CARDS & PANELS */
+    /* PANELS & CARDS */
     .panel {
       background-color: #0f172a;
       border: 1px solid #1e293b;
       border-radius: 8px;
-      padding: 16px;
-      margin-bottom: 20px;
+      padding: 14px;
+      margin-bottom: 18px;
     }
 
     .panel-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .section-title {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
       color: #ffffff;
       display: flex;
       align-items: center;
       gap: 8px;
-    }
-
-    .section-title span.highlight {
-      color: #ff9900;
     }
 
     .nav-arrows {
@@ -218,28 +214,28 @@
       background: #1e293b;
       border: none;
       color: #64748b;
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
       border-radius: 4px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 10px;
+      font-size: 9px;
     }
 
     /* CHARACTERS GRID */
     .char-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      gap: 10px;
     }
 
     .char-card {
       background: #162032;
       border: 1px solid #24334a;
       border-radius: 6px;
-      padding: 12px;
+      padding: 10px;
       text-align: center;
       position: relative;
     }
@@ -250,18 +246,18 @@
       right: 6px;
       background: #ff9900;
       color: #000;
-      font-size: 9px;
+      font-size: 8px;
       font-weight: 800;
       padding: 2px 4px;
       border-radius: 3px;
     }
 
     .char-avatar {
-      width: 50px;
-      height: 50px;
+      width: 55px;
+      height: 55px;
       border-radius: 50%;
-      background: #334155;
-      margin: 0 auto 8px auto;
+      background: #1e293b;
+      margin: 0 auto 6px auto;
       border: 2px solid #ff9900;
       object-fit: cover;
     }
@@ -269,25 +265,25 @@
     .char-name {
       font-weight: 700;
       color: #fff;
-      font-size: 14px;
-      margin-bottom: 6px;
+      font-size: 13px;
+      margin-bottom: 4px;
     }
 
     .char-icons {
       display: flex;
       justify-content: center;
       gap: 6px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       color: #ff9900;
-      font-size: 11px;
+      font-size: 10px;
     }
 
     .btn-xs {
       display: block;
       width: 100%;
-      padding: 4px 0;
-      font-size: 10px;
-      font-weight: 600;
+      padding: 3px 0;
+      font-size: 9px;
+      font-weight: 700;
       border-radius: 3px;
       margin-top: 4px;
       text-align: center;
@@ -304,30 +300,29 @@
       background: #ff9900;
       color: #000;
       border: none;
-      font-weight: 700;
     }
 
     /* WEAPONS & LOADOUT */
     .weapons-flex {
       display: flex;
-      gap: 16px;
+      gap: 14px;
     }
 
     .weapon-list {
-      width: 50%;
+      width: 55%;
     }
 
     .weapon-item {
       display: flex;
       justify-content: space-between;
-      padding: 4px 0;
+      padding: 3px 0;
       border-bottom: 1px dashed #1e293b;
-      font-size: 11px;
+      font-size: 10px;
     }
 
     .weapon-name {
       color: #94a3b8;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .weapon-desc {
@@ -335,7 +330,7 @@
     }
 
     .loadout-box {
-      width: 50%;
+      width: 45%;
       background: #162032;
       border: 1px solid #24334a;
       border-radius: 6px;
@@ -345,17 +340,17 @@
     .loadout-title {
       font-weight: 700;
       color: #fff;
-      font-size: 12px;
-      margin-bottom: 8px;
+      font-size: 11px;
+      margin-bottom: 6px;
     }
 
     .select-group {
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }
 
     .select-group label {
       display: block;
-      font-size: 10px;
+      font-size: 9px;
       color: #64748b;
     }
 
@@ -364,15 +359,15 @@
       background: #0f172a;
       border: 1px solid #334155;
       color: #fff;
-      padding: 4px;
-      border-radius: 4px;
-      font-size: 11px;
+      padding: 3px;
+      border-radius: 3px;
+      font-size: 10px;
     }
 
     /* MAPS & VEHICLES */
     .map-preview {
       width: 100%;
-      height: 140px;
+      height: 150px;
       border-radius: 6px;
       object-fit: cover;
       border: 1px solid #334155;
@@ -381,17 +376,17 @@
 
     .map-tabs {
       display: flex;
-      gap: 8px;
-      margin-bottom: 12px;
+      gap: 6px;
+      margin-bottom: 10px;
     }
 
     .map-tab {
       background: #1e293b;
       color: #94a3b8;
-      padding: 4px 10px;
-      border-radius: 4px;
-      font-size: 11px;
-      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-size: 10px;
+      font-weight: 700;
       cursor: pointer;
     }
 
@@ -410,25 +405,25 @@
     .vehicle-card {
       background: #162032;
       border: 1px solid #24334a;
-      padding: 8px;
+      padding: 6px;
       border-radius: 6px;
     }
 
     .vehicle-card img {
       width: 100%;
-      height: 45px;
+      height: 40px;
       object-fit: contain;
       margin-bottom: 4px;
     }
 
     .vehicle-name {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       color: #fff;
     }
 
     .vehicle-stat {
-      font-size: 9px;
+      font-size: 8px;
       color: #64748b;
     }
 
@@ -436,39 +431,31 @@
     .guide-cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
+      gap: 8px;
     }
 
     .guide-card {
       background: #162032;
       border: 1px solid #24334a;
       border-radius: 6px;
-      padding: 10px;
+      padding: 8px;
       text-align: center;
     }
 
     .guide-icon {
-      font-size: 20px;
+      font-size: 18px;
       color: #ff9900;
-      margin-bottom: 6px;
-    }
-
-    .guide-card img {
-      width: 100%;
-      height: 50px;
-      object-fit: cover;
-      border-radius: 4px;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .guide-title {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       color: #fff;
     }
 
     .guide-desc {
-      font-size: 9px;
+      font-size: 8px;
       color: #64748b;
       margin-top: 2px;
     }
@@ -480,30 +467,30 @@
       justify-content: space-between;
       background: #162032;
       border: 1px solid #24334a;
-      padding: 8px 12px;
+      padding: 8px 10px;
       border-radius: 6px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .tourney-info {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
     .tourney-icon {
       color: #ff9900;
-      font-size: 16px;
+      font-size: 14px;
     }
 
     .tourney-title {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       color: #fff;
     }
 
     .tourney-meta {
-      font-size: 9px;
+      font-size: 8px;
       color: #64748b;
     }
 
@@ -516,58 +503,59 @@
     .btn-register {
       background: #ff9900;
       color: #000;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 4px;
-      font-size: 10px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-size: 9px;
       border: none;
       cursor: pointer;
+      font-family: 'Rajdhani', sans-serif;
     }
 
     /* IN-GAME ITEMS & BUNDLES */
     .items-scroll {
       display: flex;
-      gap: 8px;
+      gap: 6px;
       overflow-x: auto;
       padding-bottom: 4px;
     }
 
     .item-card {
-      min-width: 70px;
-      height: 70px;
+      min-width: 60px;
+      height: 60px;
       background: #162032;
       border: 1px solid #24334a;
       border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
       flex-shrink: 0;
+      overflow: hidden;
     }
 
     .item-card img {
-      max-width: 80%;
-      max-height: 80%;
-      object-fit: contain;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     /* FOOTER */
     .footer {
       background: #0b0f19;
       border-top: 1px solid #1e293b;
-      padding: 24px;
+      padding: 20px 24px;
       margin-top: 20px;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      font-size: 11px;
+      font-size: 10px;
       color: #64748b;
     }
 
     .footer-col h5 {
       color: #fff;
-      font-size: 12px;
-      margin-bottom: 8px;
+      font-size: 11px;
+      margin-bottom: 6px;
     }
 
     .footer-links {
@@ -575,23 +563,23 @@
     }
 
     .footer-links li {
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     .social-icons {
       display: flex;
-      gap: 10px;
-      font-size: 14px;
+      gap: 8px;
+      font-size: 12px;
       color: #94a3b8;
-      margin-top: 6px;
+      margin-top: 4px;
     }
 
     .copyright {
       text-align: center;
-      padding: 12px;
+      padding: 10px;
       background: #080b11;
       border-top: 1px solid #162032;
-      font-size: 10px;
+      font-size: 9px;
       color: #475569;
     }
   </style>
@@ -613,7 +601,7 @@
     </ul>
   </nav>
 
-  <!-- HERO SECTION -->
+  <!-- HERO BANNER -->
   <header class="hero">
     <div class="search-box">
       <input type="text" placeholder="Search Free Fire Wiki...">
@@ -621,16 +609,16 @@
     </div>
   </header>
 
-  <!-- MAIN CONTENT CONTAINER -->
+  <!-- MAIN CONTAINER (2 COLUMNS) -->
   <div class="main-container">
 
     <!-- LEFT COLUMN -->
     <main class="left-col">
-      <h2 style="color: #fff; margin-bottom: 16px; font-size: 20px;">
+      <h2 style="color: #fff; margin-bottom: 12px; font-size: 18px; font-family: 'Rajdhani', sans-serif;">
         ULTIMATE <span style="color: #ff9900;">FREE FIRE</span> GAME GUIDE
       </h2>
 
-      <!-- CHARACTERS DETAILED -->
+      <!-- CHARACTERS SECTION -->
       <section class="panel">
         <div class="panel-header">
           <div class="section-title">Characters (Detailed)</div>
@@ -640,9 +628,9 @@
           </div>
         </div>
         <div class="char-grid">
-          <!-- Char 1 -->
+          <!-- K -->
           <div class="char-card">
-            <img src="https://api.dicebear.com/7.x/bottts/svg?seed=K" class="char-avatar" alt="K">
+            <img src="https://ff.garena.com/static/images/character/k.png" class="char-avatar" alt="K">
             <div class="char-name">K</div>
             <div class="char-icons">
               <i class="fa-solid fa-shield-halved"></i>
@@ -652,9 +640,9 @@
             <a class="btn-xs btn-dark">Detailed Profile</a>
             <a class="btn-xs btn-orange">Combos</a>
           </div>
-          <!-- Char 2 -->
+          <!-- Chrono -->
           <div class="char-card">
-            <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Chrono" class="char-avatar" alt="Chrono">
+            <img src="https://ff.garena.com/static/images/character/chrono.png" class="char-avatar" alt="Chrono">
             <div class="char-name">Chrono</div>
             <div class="char-icons">
               <i class="fa-solid fa-shield"></i>
@@ -663,9 +651,9 @@
             <a class="btn-xs btn-dark">Detailed Profile</a>
             <a class="btn-xs btn-orange">Patch Notes</a>
           </div>
-          <!-- Char 3 -->
+          <!-- Alok -->
           <div class="char-card">
-            <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Alok" class="char-avatar" alt="Alok">
+            <img src="https://ff.garena.com/static/images/character/alok.png" class="char-avatar" alt="Alok">
             <div class="char-name">Alok</div>
             <div class="char-icons">
               <i class="fa-solid fa-music"></i>
@@ -674,10 +662,10 @@
             <a class="btn-xs btn-dark">Detailed Profile</a>
             <a class="btn-xs btn-orange">Patch Notes</a>
           </div>
-          <!-- Char 4 -->
+          <!-- Orion -->
           <div class="char-card">
             <span class="badge-new">NEW</span>
-            <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Orion" class="char-avatar" alt="Orion">
+            <img src="https://ff.garena.com/static/images/character/orion.png" class="char-avatar" alt="Orion">
             <div class="char-name">Orion</div>
             <div class="char-icons">
               <i class="fa-solid fa-skull"></i>
@@ -686,20 +674,20 @@
             <a class="btn-xs btn-dark">Detailed Profile</a>
             <a class="btn-xs btn-orange">Patch Notes</a>
           </div>
-          <!-- Char 5 -->
+          <!-- Rela -->
           <div class="char-card">
-            <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Kenta" class="char-avatar" alt="Kenta">
-            <div class="char-name">Kenta</div>
+            <img src="https://ff.garena.com/static/images/character/hayato.png" class="char-avatar" alt="Rela">
+            <div class="char-name">Rela</div>
             <div class="char-icons">
               <i class="fa-solid fa-hand-fist"></i>
             </div>
             <a class="btn-xs btn-dark">Detailed Profile</a>
             <a class="btn-xs btn-orange">Combos</a>
           </div>
-          <!-- Char 6 -->
+          <!-- Orion 2 -->
           <div class="char-card">
-            <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Sonia" class="char-avatar" alt="Sonia">
-            <div class="char-name">Sonia</div>
+            <img src="https://ff.garena.com/static/images/character/orion.png" class="char-avatar" alt="Orion">
+            <div class="char-name">Orion</div>
             <div class="char-icons">
               <i class="fa-solid fa-crosshair"></i>
             </div>
@@ -709,7 +697,7 @@
         </div>
       </section>
 
-      <!-- WEAPONS DEEP DIVE & LOADOUT CREATOR -->
+      <!-- WEAPONS & LOADOUT -->
       <section class="panel">
         <div class="panel-header">
           <div class="section-title">Weapons (Deep Dive)</div>
@@ -720,56 +708,46 @@
         </div>
         <div class="weapons-flex">
           <div class="weapon-list">
-            <div style="font-weight: 700; color: #fff; margin-bottom: 6px;">AR (Assault Rifles)</div>
-            <div class="weapon-item">
-              <span class="weapon-name">AK</span>
-              <span class="weapon-desc">Stats • Optimal Recoil, Attachments</span>
-            </div>
-            <div class="weapon-item">
-              <span class="weapon-name">M4A1</span>
-              <span class="weapon-desc">Stats • Optimal Recoil, Attachments</span>
-            </div>
-            <div class="weapon-item">
-              <span class="weapon-name">SCAR</span>
-              <span class="weapon-desc">Stats • Optimal Recoil, Attachments</span>
-            </div>
-            <div class="weapon-item">
-              <span class="weapon-name">GROZA</span>
-              <span class="weapon-desc">Stats • Optimal Recoil, Attachments</span>
-            </div>
-            <div class="weapon-item">
-              <span class="weapon-name">XM8</span>
-              <span class="weapon-desc">Stats • Optimal Recoil, Attachments</span>
-            </div>
-            <div style="font-weight: 700; color: #fff; margin: 10px 0 4px 0;">SMGs</div>
-            <div style="font-weight: 700; color: #fff; margin: 4px 0;">Shotguns</div>
-            <div style="font-weight: 700; color: #fff; margin: 4px 0;">Snipers</div>
+            <div style="font-weight: 700; color: #fff; margin-bottom: 4px;">AR</div>
+            <div class="weapon-item"><span class="weapon-name">AK</span><span class="weapon-desc">Stats • Optimal Recoil Patterns, Attachments</span></div>
+            <div class="weapon-item"><span class="weapon-name">M4A1</span><span class="weapon-desc">Stats • Optimal Recoil Patterns, Attachments</span></div>
+            <div class="weapon-item"><span class="weapon-name">SCAR</span><span class="weapon-desc">Stats • Optimal Recoil Patterns, Attachments</span></div>
+            <div class="weapon-item"><span class="weapon-name">AN94</span><span class="weapon-desc">Stats • Optimal Recoil Patterns, Attachments</span></div>
+            <div class="weapon-item"><span class="weapon-name">GROZA</span><span class="weapon-desc">Stats • Optimal Recoil Patterns, Attachments</span></div>
+            <div class="weapon-item"><span class="weapon-name">XM8</span><span class="weapon-desc">Stats • Optimal Recoil Patterns, Attachments</span></div>
+            <div class="weapon-item"><span class="weapon-name">M249</span><span class="weapon-desc">Stats • Optimal Recoil Patterns, Attachments</span></div>
+            <div class="weapon-item"><span class="weapon-name">WOODPECKER</span><span class="weapon-desc">Stats • Optimal Recoil Patterns, Attachments</span></div>
+
+            <div style="font-weight: 700; color: #fff; margin-top: 8px;">SMGs</div>
+            <div style="font-weight: 700; color: #fff; margin-top: 4px;">Shotguns</div>
+            <div style="font-weight: 700; color: #fff; margin-top: 4px;">Snipers</div>
+            <div style="font-weight: 700; color: #fff; margin-top: 4px;">Pistols</div>
           </div>
 
           <div class="loadout-box">
             <div class="loadout-title">Loadout Creator</div>
             <div class="select-group">
-              <label>Primary Weapon</label>
-              <select><option>AK-47</option></select>
+              <label>AR</label>
+              <select><option>AK</option></select>
             </div>
             <div class="select-group">
-              <label>Secondary Weapon</label>
-              <select><option>MP40</option></select>
+              <label>Shotguns</label>
+              <select><option>M1887</option></select>
             </div>
             <div class="select-group">
-              <label>Armor / Helmet</label>
-              <select><option>Level 3 Vest</option></select>
+              <label>Shotguns</label>
+              <select><option>M1014</option></select>
             </div>
             <div class="select-group">
-              <label>Character Skill Preset</label>
-              <select><option>Rusher Preset</option></select>
+              <label>Snipers</label>
+              <select><option>AWM</option></select>
             </div>
-            <button class="btn-xs btn-orange" style="margin-top: 10px;">Save Loadout</button>
+            <button class="btn-xs btn-orange" style="margin-top: 8px;">Loadout Creator</button>
           </div>
         </div>
       </section>
 
-      <!-- MAPS & STRATEGIES -->
+      <!-- MAPS & VEHICLES -->
       <section class="panel">
         <div class="panel-header">
           <div class="section-title">Maps & Strategies (In-depth)</div>
@@ -778,13 +756,8 @@
             <button class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></button>
           </div>
         </div>
-        <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=800&q=80" class="map-preview" alt="Map">
+        <!-- Gambar Map Bermuda -->
+        <img src="https://freefiremobile-a.akamaihd.net/ffwebsite/images/map/bermuda.jpg" class="map-preview" alt="Free Fire Map Bermuda">
+        
         <div class="map-tabs">
-          <div class="map-tab active">Bermuda</div>
-          <div class="map-tab">Purgatory</div>
-          <div class="map-tab">Kalahari</div>
-          <div class="map-tab">Alpine</div>
-          <div class="map-tab">NeXTerra</div>
-        </div>
-
-        <div style="font-weight: 70
+          <div class="map-tab active">Purgatory</di

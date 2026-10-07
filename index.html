@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dapur Senja - Kuliner Rumahan di Bawah Langit Senja</title>
-    <!-- Google Fonts & Font Awesome Icons -->
+    <title>Dapur Senja - Nikmati Kelezatan Kuliner Rumahan di Bawah Langit Senja</title>
+    <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
             --primary: #E65100;
-            --primary-hover: #BF360C;
-            --accent-orange: #FF6D00;
+            --primary-hover: #D84315;
             --bg-cream: #FAF6F0;
-            --text-dark: #2C221E;
-            --text-muted: #6E655F;
             --card-bg: #FFFFFF;
-            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --text-main: #2D221E;
+            --text-muted: #7A7067;
+            --border-color: #EFECE6;
         }
 
         * {
@@ -30,104 +28,98 @@
 
         body {
             background-color: var(--bg-cream);
-            color: var(--text-dark);
-            line-height: 1.6;
+            color: var(--text-main);
+            overflow-x: hidden;
         }
 
-        /* --- HEADER & NAVIGATION --- */
+        /* --- HEADER NAVBAR --- */
         header {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 100;
-            padding: 20px 8%;
+            padding: 22px 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%);
         }
 
-        .logo {
+        .logo-wrapper {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             text-decoration: none;
         }
 
-        .logo-icon {
-            width: 42px;
-            height: 42px;
-            background: linear-gradient(135deg, #FF9800, #E65100);
+        .logo-circle {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, #FF8F00, #E65100);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
+            font-size: 16px;
+        }
+
+        .logo-title {
+            color: white;
             font-size: 20px;
-            box-shadow: 0 2px 10px rgba(230, 81, 0, 0.4);
-        }
-
-        .logo-text {
-            color: #FFFFFF;
-            font-size: 22px;
             font-weight: 800;
-            letter-spacing: 0.5px;
             line-height: 1.1;
+            letter-spacing: 0.5px;
         }
 
-        .logo-text span {
+        .logo-title span {
             display: block;
-            color: #FFB74D;
-            font-size: 18px;
+            color: #FFA726;
+            font-size: 15px;
+            letter-spacing: 1px;
         }
 
         nav {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 28px;
         }
 
         nav a {
             color: #FFFFFF;
             text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
+            font-size: 13px;
+            font-weight: 600;
             letter-spacing: 0.5px;
-            transition: color 0.3s;
-            text-transform: uppercase;
+            transition: color 0.2s;
         }
 
         nav a:hover, nav a.active {
             color: #FFB74D;
         }
 
-        .cart-btn {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
-            padding: 8px 16px;
+        .cart-pill {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+            padding: 6px 14px;
             border-radius: 20px;
             color: white;
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 13px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             cursor: pointer;
-            transition: all 0.3s;
         }
 
-        .cart-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        .cart-badge {
+        .cart-count {
             background: var(--primary);
             color: white;
             border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            font-size: 11px;
+            width: 18px;
+            height: 18px;
+            font-size: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -137,133 +129,126 @@
         /* --- HERO SECTION --- */
         .hero {
             position: relative;
-            min-height: 85vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), 
+            height: 80vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.5)), 
                         url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
             display: flex;
             align-items: center;
-            padding: 0 8%;
-            color: white;
+            padding: 0 6%;
         }
 
         .hero-content {
-            max-width: 650px;
-            margin-top: 60px;
+            max-width: 600px;
+            margin-top: 40px;
         }
 
         .hero-title {
-            font-size: 48px;
+            font-size: 42px;
             font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 16px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            color: #FFFFFF;
+            line-height: 1.25;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
         }
 
         .hero-subtitle {
-            font-size: 18px;
+            font-size: 16px;
+            color: #F5F5F5;
+            margin-bottom: 24px;
             font-weight: 400;
-            color: #F0F0F0;
-            margin-bottom: 28px;
-            text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+            text-shadow: 0 1px 4px rgba(0,0,0,0.4);
         }
 
-        .btn-primary {
+        .btn-hero {
             display: inline-block;
             background: var(--primary);
             color: white;
-            padding: 14px 32px;
-            border-radius: 8px;
+            padding: 12px 28px;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 14px;
-            text-transform: uppercase;
+            font-size: 13px;
             letter-spacing: 0.5px;
-            box-shadow: 0 4px 15px rgba(230, 81, 0, 0.4);
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(230, 81, 0, 0.4);
+            transition: background 0.2s;
         }
 
-        .btn-primary:hover {
+        .btn-hero:hover {
             background: var(--primary-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(230, 81, 0, 0.6);
         }
 
-        /* --- MENU TERFAVORIT --- */
-        .section {
-            padding: 70px 8%;
+        /* --- CONTAINER UTAMA --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 6%;
         }
 
-        .section-title {
+        .section-heading {
             text-align: center;
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: 40px;
+            color: var(--text-main);
+            margin-bottom: 35px;
         }
 
+        /* --- MENU GRID --- */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
         }
 
         .menu-card {
             background: var(--card-bg);
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
-            border: 1px solid rgba(0,0,0,0.03);
         }
 
-        .menu-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .menu-img-wrapper {
-            position: relative;
-            height: 180px;
+        .menu-img-wrap {
+            height: 150px;
             width: 100%;
             overflow: hidden;
         }
 
-        .menu-img {
+        .menu-img-wrap img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .menu-details {
-            padding: 18px;
+        .menu-body {
+            padding: 14px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
-        .menu-name {
-            font-size: 16px;
+        .menu-title {
+            font-size: 14px;
             font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 6px;
+            color: var(--text-main);
+            margin-bottom: 4px;
         }
 
         .menu-desc {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-muted);
-            margin-bottom: 12px;
             line-height: 1.4;
+            margin-bottom: 10px;
+            flex-grow: 1;
         }
 
         .menu-price {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .btn-order {
@@ -271,250 +256,253 @@
             background: var(--primary);
             color: white;
             border: none;
-            padding: 10px;
-            border-radius: 6px;
+            padding: 8px;
+            border-radius: 5px;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 12px;
             cursor: pointer;
             transition: background 0.2s;
-            margin-top: auto;
         }
 
         .btn-order:hover {
             background: var(--primary-hover);
         }
 
-        /* --- FEATURES & TESTIMONIALS --- */
-        .bottom-grid {
+        /* --- LOWER GRID (MENGAPA MEMILIH KAMI & TESTIMONI) --- */
+        .lower-section {
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 40px;
-            margin-top: 20px;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 30px;
+            align-items: start;
         }
 
-        .features-container h3, .testimonials-container h3 {
-            font-size: 20px;
+        .sub-heading {
+            font-size: 18px;
             font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--text-dark);
+            color: var(--text-main);
+            margin-bottom: 16px;
         }
 
-        .features-list {
+        .features-row {
             display: flex;
-            gap: 20px;
+            gap: 12px;
         }
 
-        .feature-item {
+        .feature-box {
             background: var(--card-bg);
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            padding: 14px;
+            border-radius: 10px;
             flex: 1;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
             display: flex;
-            align-items: flex-start;
-            gap: 14px;
+            align-items: center;
+            gap: 10px;
         }
 
         .feature-icon {
             color: var(--primary);
-            font-size: 24px;
-            background: rgba(230, 81, 0, 0.1);
-            padding: 10px;
-            border-radius: 8px;
+            font-size: 18px;
+            background: rgba(230, 81, 0, 0.08);
+            padding: 8px;
+            border-radius: 6px;
         }
 
-        .feature-text h4 {
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .feature-text p {
+        .feature-content h5 {
             font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .feature-content p {
+            font-size: 10px;
             color: var(--text-muted);
         }
 
-        .testimonial-card {
+        .testimonial-box {
             background: var(--card-bg);
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            padding: 14px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
             display: flex;
-            gap: 16px;
             align-items: center;
+            gap: 14px;
         }
 
-        .user-avatar {
-            width: 50px;
-            height: 50px;
+        .testi-avatar {
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             object-fit: cover;
         }
 
-        .user-info h5 {
-            font-size: 14px;
+        .testi-text h5 {
+            font-size: 12px;
             font-weight: 700;
         }
 
-        .user-info p {
-            font-size: 12px;
+        .testi-text p {
+            font-size: 11px;
             color: var(--text-muted);
+            font-style: italic;
         }
 
         /* --- FOOTER --- */
         footer {
-            background: #1A1412;
-            color: #A09893;
+            background: #1C1512;
+            color: #8C827B;
             text-align: center;
-            padding: 30px 8%;
-            font-size: 13px;
-            margin-top: 60px;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 24px;
+            font-size: 12px;
+            margin-top: 50px;
         }
 
-        /* --- RESPONSIVE MOBILE --- */
-        @media (max-width: 900px) {
-            header {
-                padding: 15px 5%;
+        /* Responsive Breakpoints */
+        @media(max-width: 992px) {
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .lower-section {
+                grid-template-columns: 1fr;
             }
             nav {
                 display: none;
-            }
-            .hero-title {
-                font-size: 32px;
-            }
-            .bottom-grid {
-                grid-template-columns: 1fr;
-            }
-            .features-list {
-                flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER / NAVBAR -->
+    <!-- NAVBAR -->
     <header>
-        <a href="#" class="logo">
-            <div class="logo-icon"><i class="fa-solid fa-utensils"></i></div>
-            <div class="logo-text">DAPUR<span>SENJA</span></div>
+        <a href="#" class="logo-wrapper">
+            <div class="logo-circle"><i class="fa-solid fa-utensils"></i></div>
+            <div class="logo-title">DAPUR<span>SENJA</span></div>
         </a>
         <nav>
-            <a href="#" class="active">Home</a>
-            <a href="#">Menu</a>
-            <a href="#">Order Online</a>
-            <a href="#">Tentang Kami</a>
-            <a href="#">Kontak</a>
-            <div class="cart-btn">
+            <a href="#" class="active">HOME</a>
+            <a href="#">MENU</a>
+            <a href="#">OROER ONLINE</a>
+            <a href="#">TENTANG KAMI</a>
+            <a href="#">KONTAK</a>
+            <div class="cart-pill">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span>Cart</span>
-                <span class="cart-badge">2</span>
+                <span class="cart-count">2</span>
             </div>
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
             <h1 class="hero-title">Selamat Datang di Dapur Senja</h1>
             <p class="hero-subtitle">Nikmati Kelezatan Kuliner Rumahan di Bawah Langit Senja</p>
-            <a href="#menu" class="btn-primary">LIHAT MENU LENGKAP</a>
+            <a href="#menu" class="btn-hero">LIHAT MENU LENGKAP</a>
         </div>
     </section>
 
-    <!-- MENU TERFAVORIT -->
-    <section class="section" id="menu">
-        <h2 class="section-title">Menu Terfavorit Kami</h2>
-        
+    <!-- KONTEN UTAMA -->
+    <div class="container" id="menu">
+        <h2 class="section-heading">Menu Terfavorit Kami</h2>
+
+        <!-- MENU GRID (4 KARTU SEPERTI GAMBAR) -->
         <div class="menu-grid">
-            <!-- Item 1 -->
+            <!-- 1 -->
             <div class="menu-card">
-                <div class="menu-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=500&auto=format&fit=crop" alt="Ayam Geprek Sambal Ijo" class="menu-img">
+                <div class="menu-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=400&auto=format&fit=crop" alt="Ayam Geprek Sambal Ijo">
                 </div>
-                <div class="menu-details">
-                    <h3 class="menu-name">Ayam Geprek Sambal Ijo</h3>
-                    <p class="menu-desc">Ayam Geprek Sambal Ijo, Ayam Geprek crispy dengan sambal ijo pedas gurih.</p>
+                <div class="menu-body">
+                    <div class="menu-title">Ayam Geprek Sambal Ijo</div>
+                    <div class="menu-desc">Ayam Geprek Sambal (o, Ayam Gepri...</div>
                     <div class="menu-price">Rp 35.000</div>
                     <button class="btn-order">Order Now</button>
                 </div>
             </div>
 
-            <!-- Item 2 -->
+            <!-- 2 -->
             <div class="menu-card">
-                <div class="menu-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=500&auto=format&fit=crop" alt="Es Kopi Susu Senja" class="menu-img">
+                <div class="menu-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=400&auto=format&fit=crop" alt="Es Kopi Susu Senja">
                 </div>
-                <div class="menu-details">
-                    <h3 class="menu-name">Es Kopi Susu Senja</h3>
-                    <p class="menu-desc">Es Kopi Susu Senja dengan racikan kopi pilihan dan gula aren asli.</p>
+                <div class="menu-body">
+                    <div class="menu-title">Es Kopi Susu Senja</div>
+                    <div class="menu-desc">Es Kopi Susu Senja</div>
                     <div class="menu-price">Rp 22.000</div>
                     <button class="btn-order">Order Now</button>
                 </div>
             </div>
 
-            <!-- Item 3 -->
+            <!-- 3 -->
             <div class="menu-card">
-                <div class="menu-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=500&auto=format&fit=crop" alt="Nasi Campur Bali" class="menu-img">
+                <div class="menu-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&auto=format&fit=crop" alt="Nasi Campur Bali">
                 </div>
-                <div class="menu-details">
-                    <h3 class="menu-name">Nasi Campur Bali</h3>
-                    <p class="menu-desc">Nasi Campur Bali khas Dapur Senja lengkap dengan sate lilit & sambal matah.</p>
+                <div class="menu-body">
+                    <div class="menu-title">Nasi Campur Bali</div>
+                    <div class="menu-desc">Nasi Campur Bali. Nasi Gociti Sodw...</div>
                     <div class="menu-price">Rp 40.000</div>
                     <button class="btn-order">Order Now</button>
                 </div>
             </div>
 
-            <!-- Item 4 -->
+            <!-- 4 -->
             <div class="menu-card">
-                <div class="menu-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1546173159-315724a31696?q=80&w=500&auto=format&fit=crop" alt="Jus Mangga Segar" class="menu-img">
+                <div class="menu-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1546173159-315724a31696?q=80&w=400&auto=format&fit=crop" alt="Jus Mangga Segar">
                 </div>
-                <div class="menu-details">
-                    <h3 class="menu-name">Jus Mangga Segar</h3>
-                    <p class="menu-desc">Jus Mangga Segar dari buah mangga arumanis asli tanpa pemanis buatan.</p>
+                <div class="menu-body">
+                    <div class="menu-title">Jus Mangga Segar</div>
+                    <div class="menu-desc">Jus Mangga Segar</div>
                     <div class="menu-price">Rp 25.000</div>
                     <button class="btn-order">Order Now</button>
                 </div>
             </div>
         </div>
 
-        <!-- FITUR & TESTIMONI -->
-        <div class="bottom-grid">
-            <div class="features-container">
-                <h3>Mengapa Memilih Kami?</h3>
-                <div class="features-list">
-                    <div class="feature-item">
-                        <i class="fa-solid fa-leaf feature-icon"></i>
-                        <div class="feature-text">
-                            <h4>Bahan Segar</h4>
-                            <p>Bahan berkualitas tinggi dari petani lokal.</p>
+        <!-- FITUR & TESTIMONI BAWAH -->
+        <div class="lower-section">
+            <div>
+                <h3 class="sub-heading">Mengapa Memilih Kami?</h3>
+                <div class="features-row">
+                    <div class="feature-box">
+                        <i class="fa-solid fa-seedling feature-icon"></i>
+                        <div class="feature-content">
+                            <h5>Bahan Segar</h5>
+                            <p>Bahan Segar</p>
                         </div>
                     </div>
-                    <div class="feature-item">
-                        <i class="fa-solid fa-utensils feature-icon"></i>
-                        <div class="feature-text">
-                            <h4>Rasa Otentik</h4>
-                            <p>Resep rumahan warisan keluarga.</p>
+                    <div class="feature-box">
+                        <i class="fa-solid fa-mug-hot feature-icon"></i>
+                        <div class="feature-content">
+                            <h5>Rasa Otentik</h5>
+                            <p>Rasa Otentik</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <i class="fa-solid fa-bolt feature-icon"></i>
+                        <div class="feature-content">
+                            <h5>Pesan Mudah</h5>
+                            <p>Pesan dan cepat</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="testimonials-container">
-                <h3>Testimoni Pelanggan</h3>
-                <div class="testimonial-card">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="Pelanggan" class="user-avatar">
-                    <div class="user-info">
+            <div>
+                <h3 class="sub-heading">Testimoni Pelanggan</h3>
+                <div class="testimonial-box">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" alt="Pelanggan" class="testi-avatar">
+                    <div class="testi-text">
                         <h5>Siska Amelia</h5>
-                        <p>"Makanan di Dapur Senja rasanya benar-benar otentik dan bikin kangen masakan rumah!"</p>
+                        <p>"Makanannya enak banget dan suasananya pas banget buat santai sore!"</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- FOOTER -->
     <footer>
